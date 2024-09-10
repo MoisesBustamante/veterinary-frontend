@@ -1,0 +1,98 @@
+<div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8">
+  <h2 class="text-2xl font-semibold text-gray-800 mb-6">Crear Paciente</h2>
+
+  <form [formGroup]="pacienteForm" (ngSubmit)="onSubmit()">
+    <!-- ID Mascota -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="id_mascota">Id Mascota</label>
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="id_mascota"
+        formControlName="id_mascota"
+        type="text"
+        placeholder="Ingrese el Id de la mascota"
+      />
+    </div>
+
+    <!-- Nombre Mascota -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre_mascota">Nombre Mascota</label>
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="nombre_mascota"
+        formControlName="nombre_mascota"
+        type="text"
+        placeholder="Ingrese el nombre de la mascota"
+      />
+    </div>
+
+    <!-- Especie -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="especie">Especie</label>
+      <select
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="especie"
+        formControlName="especie"
+      >
+        <option value="Perro">Perro</option>
+        <option value="Gato">Gato</option>
+        <option value="Ave">Ave</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </div>
+
+    <!-- Raza -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="raza">Raza</label>
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="raza"
+        formControlName="raza"
+        type="text"
+        placeholder="Ingrese la raza de la mascota"
+      />
+    </div>
+
+    <!-- Fecha de Nacimiento -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="fecha_nacimiento">Fecha de Nacimiento</label>
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="fecha_nacimiento"
+        formControlName="fecha_nacimiento"
+        type="date"
+      />
+    </div>
+
+    <!-- ID Dueño -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="id_dueno">Dueño</label>
+      <select
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="id_dueno"
+        formControlName="id_dueno"
+      >
+        <option *ngFor="let dueno of pacientes" [value]="dueno.id_dueno">{{ dueno.nombre_dueno }}</option>
+      </select>
+    </div>
+
+
+    <!-- Botones de acción -->
+    <div class="flex items-center m-2">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="submit"
+      >
+        Guardar
+      </button>
+      <button
+        (click)="Cancelar()"
+        class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-2"
+        type="button"
+      >
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>
+

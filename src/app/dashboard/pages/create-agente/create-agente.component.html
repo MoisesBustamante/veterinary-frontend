@@ -1,0 +1,105 @@
+<div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8">
+  <h2 class="text-2xl font-semibold text-gray-800 mb-6">Crear Propietario</h2>
+
+  <form [formGroup]="propietarioForm" (ngSubmit)="onSubmit()">
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="id_dueno">Id</label>
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="id_dueno"
+        formControlName="id_dueno"
+        type="text"
+        placeholder="Ingrese El Id"
+      />
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="tipo_identificacion">Tipo de Identificación</label>
+      <select
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="tipo_identificacion"
+        formControlName="tipo_identificacion"
+      >
+        <option value="CC">Cédula de Ciudadanía</option>
+        <option value="TI">Tarjeta de Identidad</option>
+        <option value="NIT">NIT</option>
+      </select>
+    </div>
+
+    <!-- Identificación -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="identificacion_dueno">Identificación</label>
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="identificacion_dueno"
+        formControlName="identificacion_dueno"
+        type="text"
+        placeholder="Ingrese la identificación"
+      />
+    </div>
+
+    <!-- Nombre -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre_dueno">Nombre</label>
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="nombre_dueno"
+        formControlName="nombre_dueno"
+        type="text"
+        placeholder="Ingrese el nombre del propietario"
+      />
+    </div>
+
+    <!-- ID Ciudad -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="id_ciudad">Ciudad</label>
+      <select
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="id_ciudad"
+        formControlName="id_ciudad"
+      >
+        <option *ngFor="let ciudad of ciudades" [value]="ciudad.id_ciudad">{{ ciudad.nombre_ciudad }}</option>
+      </select>
+    </div>
+
+    <!-- Dirección -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="direccion">Dirección</label>
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="direccion"
+        formControlName="direccion"
+        type="text"
+        placeholder="Ingrese la dirección"
+      />
+    </div>
+
+    <!-- Teléfono -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="telefono">Teléfono</label>
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="telefono"
+        formControlName="telefono"
+        type="text"
+        placeholder="Ingrese el teléfono"
+      />
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="flex items-center m-2">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="submit"
+      >
+        Guardar
+      </button>
+      <button
+        (click)="Cancelar()"
+        class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-2"
+        type="button"
+      >
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>
